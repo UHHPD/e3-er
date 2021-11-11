@@ -51,7 +51,9 @@ for(int i = 0; i < Ntot; i++) {
 
 fin.close();
 
-std::cout << prob(daten, 3.11538) << std::endl;
+std::cout << "2a: " << std::endl << std::endl;
+
+std::cout << prob(daten, 3.11538) << std::endl << std::endl;
 
 /*
 Schreibe die Werte von mu und L(mu) für Werte von mu zwischen 0 und 6 in Intervallen von 0,1 in die Datei likelihood.txt.
@@ -102,6 +104,16 @@ for (int j = 0; j < 601; j++) {
 
 fout3.close();
 
+std::cout << "2d: " << std::endl << std::endl;
+
+std::cout << "Best estimator of mu based on deltanll.txt: mu = 3.12 +- 0.11" << std::endl;
+
+std::cout << "-> Uncertainty on mu: mu=3.12 +- 0.11" << std::endl;
+
+std::cout << "Standard Deviation (from sheet 2): 1.65365" << std::endl;
+
+std::cout << "-> Uncertainty of sample mean: " << 1.65365/sqrt(234) << std::endl << std::endl;
+
 /*
 Berechne Lambda aus Teilaufgabe e)
 Lambda ist definiert als L(mu)/(Produkt der P(ki,ki) für alle Messungen in "Daten").
@@ -118,10 +130,14 @@ for (int k : daten) {
 
 long double lambda = prob(daten, 3.11538)/sprob2;
 
+std::cout << "2e: " << std::endl << std::endl;
+
 std::cout << "Product over all P(ki,ki): " << sprob2 << std::endl;
 
 std::cout << "Resulting Lambda: " << lambda << std::endl;
 
 std::cout << "-2 ln (Lambda): " << - 2 * log(lambda) << std::endl;
+
+std::cout << "z: " << (- 2 * log(lambda) - 233)/sqrt(2 * 233) << std::endl << std::endl;
 
 }
