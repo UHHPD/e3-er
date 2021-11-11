@@ -100,8 +100,28 @@ for (int j = 0; j < 601; j++) {
   fout3 << mu1 << " " << deltanll << std::endl;
 }
 
-
-
 fout3.close();
+
+/*
+Berechne Lambda aus Teilaufgabe e)
+Lambda ist definiert als L(mu)/(Produkt der P(ki,ki) für alle Messungen in "Daten").
+Wir verwenden das bereits bekannte mu=3,11538.
+Zunächst wird das Produkt berechnet, dann Lambda.
+*/
+
+long double sprob2 = 1;
+
+for (int k : daten) {
+  long double kprob = poisson(k,k);
+  sprob2 *= kprob;
+}
+
+long double lambda = prob(daten, 3.11538)/sprob2;
+
+std::cout << "Product over all P(ki,ki): " << sprob2 << std::endl;
+
+std::cout << "Resulting Lambda: " << lambda << std::endl;
+
+std::cout << "-2 ln (Lambda): " << - 2 * log(lambda) << std::endl;
 
 }
